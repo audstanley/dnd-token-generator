@@ -123,7 +123,7 @@ func main() {
 	}
 
 	rootCmd.Flags().StringVarP(&folderPath, "folder", "f", "", "Folder path")
-	rootCmd.Flags().IntVarP(&pixels, "pixels", "p", 5, "Border width in pixels")
+	rootCmd.Flags().IntVarP(&pixels, "pixels", "p", 20, "Border width in pixels")
 
 	if err := rootCmd.Execute(); err != nil {
 		os.Exit(1)
