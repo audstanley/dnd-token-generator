@@ -75,8 +75,16 @@ func main() {
 			}
 
 			folderPath = args[0]
+			croppedImagesFolder := "cropped_images"
 
-			err := filepath.Walk(folderPath, func(path string, info os.FileInfo, err error) error {
+			// Create the cropped_images folder if it doesn't exist
+			err := os.MkdirAll(croppedImagesFolder, os.ModePerm)
+			if err != nil && !os.IsExist(err) {
+				fmt.Println("Error creating cropped_images folder:", err)
+				return
+			}
+
+			err = filepath.Walk(folderPath, func(path string, info os.FileInfo, err error) error {
 				if err != nil {
 					return err
 				}
