@@ -109,7 +109,7 @@ func main() {
 
 					croppedImg := cropToCircle(img, pixels)
 
-					outFile, err := os.Create(filepath.Join("cropped_images", filepath.Base(path)))
+					outFile, err := os.Create(filepath.Join("cropped_images", filepath.Base(path)[:len(filepath.Base(path))-len(filepath.Ext(path))]+"-token"+filepath.Ext(path)))
 					if err != nil {
 						return err
 					}
